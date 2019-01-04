@@ -1,19 +1,46 @@
-# Welcome!
-
-This C++ template lets you get started quickly with a simple one-page playground.
 
 ```C++ runnable
-#include <iostream>
-
-using namespace std;
-
+// C code to find intersection when 
+// elements may not be distinct 
+#include<bits/stdc++.h> 
+  
+using namespace std; 
+  
+// Function to find intersection 
+void intersection(int a[], int b[], int n, int m) 
+{ 
+    int i = 0, j = 0; 
+      
+    while (i < n && j < m)  
+    { 
+                  
+        if (a[i] > b[j])  
+        { 
+            j++; 
+        }  
+                  
+        else 
+        if (b[j] > a[i])  
+        { 
+            i++; 
+        }  
+        else 
+        { 
+            // when both are equal 
+            cout << a[i] << " "; 
+            i++; 
+            j++; 
+        } 
+    } 
+} 
+  
+// Driver Code 
 int main() 
-{
-    cout << "Hello, World!";
-    return 0;
-}
-```
-
-# Advanced usage
-
-If you want a more complex example (external libraries, viewers...), use the [Advanced C++ template](https://tech.io/select-repo/598)
+{ 
+    int a[] = {1, 2, 3, 3, 4, 5, 5, 6}; 
+    int b[] = {3, 3, 5}; 
+      
+    int n = sizeof(a)/sizeof(a[0]); 
+    int m = sizeof(b)/sizeof(b[0]); 
+    intersection(a, b, n, m); 
+} 
